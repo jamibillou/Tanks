@@ -8,8 +8,7 @@ class Clone < ActiveRecord::Base
 	
 	validates :typeI,  			 length: { maximum: 50 },  presence: true
 	validates :typeII, 			 length: { maximum: 50 },  presence: true
-	validates :client, 			 length: { maximum: 80 },  presence: true
-	validates :nom,					 length: { maximum: 100 }, presence: true
+	validates :nom,				 length: { maximum: 100 }, presence: true
 	validates :localisation, inclusion: { in: %w(lyon grenoble), message: "%{value} n'est pas une valeur correcte (Lyon ou Grenoble)" }, presence: true
 	validates :reference,		 length: { maximum: 100 }
 	validates :origine,			 length: { maximum: 100 }

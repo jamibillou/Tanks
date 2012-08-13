@@ -1,0 +1,44 @@
+.row
+	.span6.offset1.well
+		%h6 CREATION CLONE
+		%br/
+		= form_for @clone do |f|
+			%table
+				%tr
+					%td
+						%strong Type 1
+					%td
+						= f.select :typeI, %w(HEK CHO COS-1 COS-7 IC6 Véro BHK21 MDCK T3/Duck RK13 NSO), {}, class: 'span2'
+				%tr
+					%td	
+						%strong Type 2
+					%td
+						= f.select :typeII, [ ["Lignée de base", "base"], ["Lignée adhérente", "adhérente"] ], {}, class: 'span2'
+				%tr
+					%td
+						%strong Client (si lignée cliente)
+					%td
+						= f.text_field :client
+				%tr
+					%td
+						%strong Nom
+					%td
+						= f.text_field :nom
+				%tr
+					%td	
+						%strong Référence
+					%td
+						= f.text_field :reference
+				%tr
+					%td
+						%strong Localisation
+					%td
+						= f.select :localisation, %w(Grenoble Lyon), {}, class: 'span2'
+				%tr
+					%td
+						%strong Origine
+					%td
+						= f.text_field :origine
+			=f.submit 'Valider', class: "btn-primary btn-gigantic"
+		%span.pull-right
+			= link_to "Retour à l'accueil", root_path
