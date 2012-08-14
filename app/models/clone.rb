@@ -1,15 +1,13 @@
 class Clone < ActiveRecord::Base
 
-	attr_accessible :typeI, :typeII, :client_id, :nom, :reference, :origine, :localisation
+	attr_accessible :typeI, :typeII, :nom, :reference, :origine, :localisation, :client
 
 	belongs_to :client
 
-	validates_presence_of :client
-	
 	validates :typeI,  			 length: { maximum: 50 },  presence: true
 	validates :typeII, 			 length: { maximum: 50 },  presence: true
 	validates :nom,				 length: { maximum: 100 }, presence: true
-	validates :localisation, inclusion: { in: %w(lyon grenoble), message: "%{value} n'est pas une valeur correcte (Lyon ou Grenoble)" }, presence: true
+	validates :localisation, inclusion: { in: %w(Lyon Grenoble), message: "%{value} n'est pas une valeur correcte (Lyon ou Grenoble)" }, presence: true
 	validates :reference,		 length: { maximum: 100 }
 	validates :origine,			 length: { maximum: 100 }
 

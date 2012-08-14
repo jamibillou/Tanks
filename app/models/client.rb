@@ -1,6 +1,6 @@
 class Client < ActiveRecord::Base
 
-	attr_accesible :nom
+	attr_accessible :nom
 
 	validates :nom, length: { maximum: 80 }, presence: true
 end
