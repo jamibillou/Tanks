@@ -4,7 +4,7 @@ tiroirs = Tiroir.create!([ { site: 'Lyon', numero: 1 }, { site: 'Lyon', numero: 
 						{ site: 'Grenoble', numero: 4 }, { site: 'Grenoble', numero: 5 }, { site: 'Grenoble', numero: 6 } ])
 
 tiroirs.each do |tiroir_id|
-	[1..6].each do |num|
+	[1..5].each do |num|
 		Boite.create!( tiroir_id: tiroir_id, numero: num )
 	end
 end

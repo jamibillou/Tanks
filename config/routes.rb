@@ -2,7 +2,7 @@ Tanks::Application.routes.draw do
 
   devise_for :users
 
-  resources :clones
+  resources :clones, :tiroirs
 
-  root :to => 'pages#index'
+  root :to => 'tiroirs#index'
 end
