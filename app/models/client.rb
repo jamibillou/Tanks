@@ -2,6 +2,8 @@ class Client < ActiveRecord::Base
 
 	attr_accessible :nom
 
+	has_many :clones
+
 	validates :nom, length: { maximum: 80 }, presence: true
 end
 # == Schema Information

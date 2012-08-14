@@ -4,6 +4,10 @@ class Position < ActiveRecord::Base
 
 	belongs_to :boite
 
+	has_many :positionings, dependent: :destroy
+	has_many :users,				through: :positionings
+	has_many :clones,				through: :positionings
+
 	validates_presence_of :boite, :numero
 end
 # == Schema Information

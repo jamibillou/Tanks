@@ -4,6 +4,10 @@ class Clone < ActiveRecord::Base
 
 	belongs_to :client
 
+	has_many  :positionings, dependent: :destroy
+	has_many  :positions,	 through: :positionings
+	has_many  :users,		 through: :positionings
+
 	validates :typeI,  			 length: { maximum: 50 },  presence: true
 	validates :typeII, 			 length: { maximum: 50 },  presence: true
 	validates :nom,				 length: { maximum: 100 }, presence: true
