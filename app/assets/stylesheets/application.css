@@ -30,3 +30,9 @@ ul li a{
 	padding: 10px;
 	border-radius: 5px;
 }
+
+a.selected{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #d9e7f8;
+}
