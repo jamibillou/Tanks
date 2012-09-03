@@ -1,7 +1,9 @@
 %table.boite
 	%tr
 		%td{ :colspan => 5, :style => 'border:none;height:30px;text-align:left' }= "Boîte #{boite.numero}"
+		- i=1
 		- (1..5).each do |ligne| 
 			%tr
 				- (1..5).each do |colonne|
-					%td= colonne
+					%td= getClone(boite.id,i)
+					- i+=1

@@ -1,3 +1,5 @@
+User.create!(email: "francksabattier@px-therapeutics.com", password: "jamiro73")
+
 tiroirs = Tiroir.create!([ { site: 'Lyon', numero: 1 }, { site: 'Lyon', numero: 2 }, { site: 'Lyon', numero: 3 }, 
 					{ site: 'Lyon', numero: 4 }, { site: 'Lyon', numero: 5 }, { site: 'Lyon', numero: 6 },
 					{ site: 'Grenoble', numero: 1 }, { site: 'Grenoble', numero: 2 }, { site: 'Grenoble', numero: 3 }, 
@@ -9,8 +11,8 @@ tiroirs.each do |tiroir|
 	end
 end
 
-Boite.all.each do |boite_id|
+Boite.all.each do |boite|
 	(1..25).each do |num|
-		Position.create!( boite_id: boite_id, numero: num )
+		Position.create!( boite_id: boite.id, numero: num )
 	end
 end

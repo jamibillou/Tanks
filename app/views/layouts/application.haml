@@ -13,8 +13,7 @@
     = yield(:head)
 
   %body
-
-    .row
+    .row{ style: 'margin-top: -50px' }
       .span8.offset1
         - flash.each do |name, msg|
           %div{ class: "alert alert-#{name == :notice || name == :success ? 'success' : 'error'}" }

@@ -1,8 +1,10 @@
 class Boite < ActiveRecord::Base
 
-	attr_accessible :numero, :tiroir_id
+	attr_accessible :numero, :tiroir_id, :positions
 
 	belongs_to :tiroir
+
+	has_many :positions, dependent: :destroy
 
 	validates_presence_of :numero, :tiroir
 
