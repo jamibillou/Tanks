@@ -1,33 +1,7 @@
 %table.boite
 	%tr
-		%td{ :colspan => 5, :style => 'border:none;height:30px;text-align:left' } Boîte 1
-	%tr
-		%td 1
-		%td 2
-		%td 3
-		%td 4
-		%td 5
-	%tr
-		%td 6
-		%td 7
-		%td 8
-		%td 9
-		%td 10
-	%tr
-		%td 11
-		%td 12
-		%td 13
-		%td 14
-		%td 15
-	%tr
-		%td 16
-		%td 17
-		%td 18
-		%td 19
-		%td 20
-	%tr
-		%td 21
-		%td 22
-		%td 23
-		%td 24
-		%td 25
+		%td{ :colspan => 5, :style => 'border:none;height:30px;text-align:left' }= "Boîte #{boite.numero}"
+		- (1..5).each do |ligne| 
+			%tr
+				- (1..5).each do |colonne|
+					%td= colonne
