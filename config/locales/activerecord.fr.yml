@@ -1,0 +1,10 @@
+fr:
+  activerecord:
+    models:
+      clone: 'Clone'
+    attributes:
+      clone:
+        nom: 'nom'
+    errors:
+      messages:
+        blank: 'obligatoire'
