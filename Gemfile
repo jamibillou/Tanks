@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
 gem 'jquery-rails'
-gem 'sqlite3'
 gem 'twitter-bootstrap-rails', :git => "http://github.com/seyhunak/twitter-bootstrap-rails", :branch => "static"
 gem 'haml'
 gem 'devise'
+gem 'heroku'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,6 +20,7 @@ group :development do
   gem 'rspec-rails'
   gem 'annotate', '2.4.1.beta1'
   gem 'faker'
+  gem 'sqlite3'
 end
 
 group :test do
@@ -28,4 +29,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'webrat'
   gem 'shoulda-matchers'
+  gem 'pg'
 end
