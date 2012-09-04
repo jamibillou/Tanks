@@ -1,6 +1,6 @@
 class Positioning < ActiveRecord::Base
 
-	attr_accessible :clone_id, :user_id, :position_ref, :position_travail
+	attr_accessible :clone, :user, :position_ref, :position_travail, :position_id_ref, :position_id_travail
 
 	belongs_to :position_ref, 		class_name: 'Position', foreign_key: 'position_id_ref'
 	belongs_to :position_travail, 	class_name: 'Position', foreign_key: 'position_id_travail'

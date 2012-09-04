@@ -41,9 +41,9 @@
 					%td
 						%dd Rack
 					%td
-						%select{ name: 'rack', class: 'input-small' }
-							- (1..6).each do |rack_num|
-								%option= "#{rack_num}"
+						%select{ name: 'tiroir', class: 'input-small' }
+							- (1..6).each do |tiroir_num|
+								%option= "#{tiroir_num}"
 				%tr
 					%td
 						%dd Boite
@@ -55,7 +55,11 @@
 					%td
 						%dd Numéro
 					%td
-						%select{ name: 'numero', class: 'input-small' }
+						%select{ name: 'position_first', class: 'input-small' }
+							- (1..25).each do |numero|
+								%option= "#{numero}"
+						à
+						%select{ name: 'position_last', class: 'input-small' }
 							- (1..25).each do |numero|
 								%option= "#{numero}"
 				%tr
