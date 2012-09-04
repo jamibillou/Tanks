@@ -1,6 +1,6 @@
 module TiroirsHelper
 
-	def getClone(boite_id,numero)
+	def clone(boite_id, numero)
 		position = Position.all(conditions: { boite_id: boite_id, numero: numero }).last
 		if position.nil?
 			numero
@@ -12,5 +12,13 @@ module TiroirsHelper
 				numero
 			end	
 		end
+	end
+
+	def tiroir(site, numero)
+		Tiroir.where("site='#{site}' AND numero='#{numero}'").first
+	end
+
+	def site
+		@tiroir.site
 	end
 end

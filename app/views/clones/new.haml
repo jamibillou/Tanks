@@ -8,7 +8,7 @@
 					%td
 						%strong Type 1
 					%td
-						= f.select :typeI, %w(HEK CHO COS-1 COS-7 IC6 Véro BHK21 MDCK T3/Duck RK13 NSO), {}, class: 'span2'
+						= f.select :typeI, %w(HEK CHO COS-1 COS-7 IC6 Véro BHK21 MDCK T3/Duck RK13 NSO SF21 SF9 Hi-5), {}, class: 'span2'
 				%tr
 					%td	
 						%strong Type 2
@@ -34,6 +34,30 @@
 						%strong Localisation
 					%td
 						= f.select :localisation, %w(Grenoble Lyon), {}, class: 'span2'
+				%tr
+					%td
+						%strong	Position
+				%tr
+					%td
+						%dd Rack
+					%td
+						%select{ name: 'rack', class: 'input-small' }
+							- (1..6).each do |rack_num|
+								%option= "#{rack_num}"
+				%tr
+					%td
+						%dd Boite
+					%td
+						%select{ name: 'boite', class: 'input-small' }
+							- (1..5).each do |boite_num|
+								%option= "#{boite_num}"			
+				%tr
+					%td
+						%dd Numéro
+					%td
+						%select{ name: 'numero', class: 'input-small' }
+							- (1..25).each do |numero|
+								%option= "#{numero}"
 				%tr
 					%td
 						%strong Origine

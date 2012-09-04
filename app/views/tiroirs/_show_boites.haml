@@ -5,5 +5,5 @@
 		- (1..5).each do |ligne| 
 			%tr
 				- (1..5).each do |colonne|
-					%td= getClone(boite.id,i)
+					%td= clone(boite.id,i)
 					- i+=1
