@@ -14,15 +14,23 @@
 
   %body
     .row{ style: 'margin-top: -50px' }
-      .span8.offset1
+      .span12.offset1
         - flash.each do |name, msg|
           %div{ class: "alert alert-#{name == :notice || name == :success ? 'success' : 'error'}" }
             %a.close{ "data-dismiss" => 'alert'} &#215;
             = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+        .pull-right
+          - if user_signed_in?
+            = current_user.email
+            %strong= link_to 'Se déconnecter', destroy_user_session_path, method: :delete
+          - else
+            %strong= link_to 'Se connecter', new_user_session_url
 
     %h1{ style: 'margin-left:10px;' } Gestion des tanks azote
-    = render 'shared/search_form'
-    = render 'shared/admin_links'
+
+    - if user_signed_in?
+      = render 'shared/search_form'
+      = render 'shared/admin_links'
 
     = yield
 

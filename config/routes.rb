@@ -4,5 +4,5 @@ Tanks::Application.routes.draw do
 
   resources :clones, :tiroirs
 
-  root :to => 'tiroirs#index'
+  root :to => 'pages#index'
 end
