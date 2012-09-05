@@ -23,11 +23,9 @@ class ClonesController < ApplicationController
 		def new_positioning
 			tiroir = Tiroir.where(site: params[:clone][:localisation], numero: params[:tiroir]).first
 			boite = Boite.where(tiroir_id: tiroir, numero: params[:boite]).first
-			if params[:position_first] == params[:position_last]
-				position = Position.where(boite_id: boite, numero: params[:position_first]).first
+			(params[:position_first]..params[:position_last]).each do |numero|
+				position = Position.where(boite_id: boite, numero: numero).first
 				Positioning.create!(user: current_user, clone: @clone, position_ref: position)
-			else
-				## to be completed
 			end
 		end
 end
