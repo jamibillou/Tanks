@@ -3,31 +3,14 @@
  *= require_tree .
 */
 
-.btn-gigantic {
-  font-size:20px;
-  font-weight:normal;
-  padding:10px 18px 10px;
-  margin-right:10px;
-  -webkit-border-radius:6px;
-  -moz-border-radius:6px;
-  border-radius:6px;
+/** Right Menu **/
+.menu{
+  position: fixed; 
+  top: 20px; 
+  right: 20px;
 }
 
-ul li{
-	display: inline;
-}
-
-ul li a{
-	padding: 10px;
-	border-radius: 5px;
-}
-
-a.selected{
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #d9e7f8;
-}
-
+/** Boites **/
 .boite{
   font-size: 7pt;
   text-align: center;
@@ -40,3 +23,36 @@ a.selected{
   width: 60px;
   height: 60px;
 }
+
+/** Misc **/
+.btn-gigantic{
+  font-size:20px;
+  font-weight:normal;
+  padding:10px 18px 10px;
+  margin-right:10px;
+  -webkit-border-radius:6px;
+  -moz-border-radius:6px;
+  border-radius:6px;
+}
+
+.small{
+  font-size: 8pt;
+}
+
+/** Boites menu **/
+ul li{
+  display: inline;
+}
+
+ul li a{
+  padding: 10px;
+  border-radius: 5px;
+}
+
+a.selected{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #d9e7f8;
+}
+
+

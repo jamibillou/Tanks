@@ -1,3 +1,9 @@
 .row
-	.span9.offset1.lead
-		= link_to 'Ajouter un clone', new_clone_path 
+	.span2.well.menu
+		%h6.pull-right Menu administrateur
+		%br/
+		%br/
+		%strong.pull-right= link_to 'Ajouter un clone', new_clone_path 
+		%br/
+		%br/
+		.small.pull-right= link_to 'Se déconnecter', destroy_user_session_path, method: :delete

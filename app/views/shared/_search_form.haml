@@ -1,11 +1,9 @@
-%br/
-.row
-	.span9.offset1.lead
-		Recherche
-		%h5.pull-right= link_to 'Critères avancés', '#', { :style => 'margin-right:90px', id: 'link_filters' }
-		%form.form-horizontal
-			.input-append
-				%input#search.input-xxlarge{ :placeholder => 'Saisissez votre recherche' }
-					%button#search_button.btn.btn-large.btn-info{ :style => 'margin-left:-6px;'}
-						%i.icon-search
+.span8.offset1.lead
+	Recherche
+	%h5.pull-right= link_to 'Critères avancés', '#', { :style => 'margin-right:90px', id: 'link_filters' }
+	%form.form-horizontal
+		.input-append
+			%input#search.input-xxlarge{ :placeholder => 'Saisissez votre recherche' }
+				%button#search_button.btn.btn-large.btn-info{ :style => 'margin-left:-6px;'}
+					%i.icon-search
 = render 'shared/search_filters'
