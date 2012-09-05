@@ -23,11 +23,14 @@ group :development do
   gem 'sqlite3'
 end
 
+group :production do
+  gem 'pg'
+end
+
 group :test do
   gem 'rspec'
   gem 'spork'
   gem 'factory_girl_rails'
   gem 'webrat'
   gem 'shoulda-matchers'
-  gem 'pg'
 end
