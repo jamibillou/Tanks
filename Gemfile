@@ -8,6 +8,7 @@ gem 'devise'
 gem 'heroku'
 gem 'sass-rails',   '~> 3.2.3'
 gem 'font-awesome-sass-rails'
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,11 +21,6 @@ group :development do
   gem 'rspec-rails'
   gem 'annotate', '2.4.1.beta1'
   gem 'faker'
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
 end
 
 group :test do
