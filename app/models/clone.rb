@@ -1,20 +1,38 @@
+# encoding: UTF-8
 class Clone < ActiveRecord::Base
 
 	attr_accessible :typeI, :typeII, :nom, :reference, :origine, :localisation, :client
 
 	belongs_to :client
 
-	has_many  :positionings, 	 dependent: :destroy
-	has_many  :positions,	 	 through: :positionings
-	has_many  :users,		 	 through: :positionings
+	has_many  :positionings, 	 	dependent: :destroy
+	has_many  :users,		 	 		 	through: :positionings
 
-	validates :typeI,  			 length: { maximum: 50 },  presence: true
-	validates :typeII, 			 length: { maximum: 50 },  presence: true
-	validates :nom,				 length: { maximum: 100 }, presence: true
-	validates :localisation, inclusion: { in: %w(Lyon Grenoble), message: "%{value} n'est pas une valeur correcte (Lyon ou Grenoble)" }, presence: true
-	validates :reference,		 length: { maximum: 100 }
-	validates :origine,			 length: { maximum: 100 }
+	validates :typeI,  			 	 	length: { maximum: 50 },  					presence: true
+	validates :typeII, 			   	length: { maximum: 50 },  					presence: true
+	validates :nom,				 		 	length: { maximum: 100 }, 					presence: true
+	validates :localisation, 		inclusion: { in: %w(Lyon Grenoble), presence: true, message: "%{value} n'est pas une valeur correcte (Lyon ou Grenoble)" } 
+	validates :reference,		 		length: { maximum: 100 }
+	validates :origine,			 		length: { maximum: 100 }
 
+	def tiroir
+		positionings.first.position.boite.tiroir
+	end
+
+	def positions_in_table
+		if positionings.count == 1
+			position= positionings.first.position
+			"#{position.boite.tiroir.numero}/#{position.boite.numero}/#{position.numero}"  
+		else
+			position_first = positionings.first.position
+			position_last = positionings.last.position
+			"#{position_first.boite.tiroir.numero}/#{position_first.boite.numero}/#{position_first.numero} à #{position_last.numero}"
+		end	
+	end
+
+	def client_in_table
+		client.nil? ? 'Lignée de base' : client.nom
+	end
 end
 # == Schema Information
 #

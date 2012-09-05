@@ -18,6 +18,12 @@ class ClonesController < ApplicationController
 		end	
 	end
 
+	def show
+		@clone = Clone.find(params[:id])
+		@tiroir = @clone.tiroir
+		@boites = @tiroir.boites.order(:numero)
+	end
+
 	private
 
 		def new_positioning

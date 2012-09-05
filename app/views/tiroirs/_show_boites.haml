@@ -5,5 +5,9 @@
 		- (1..5).each do |ligne| 
 			%tr
 				- (1..5).each do |colonne|
-					%td= clone(boite.id,i)
+					- clone=clone(boite.id,i)
+					- unless clone.nil?
+						%td= link_to clone.nom, clone
+					- else
+						%td= i
 					- i+=1

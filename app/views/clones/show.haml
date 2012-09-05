@@ -1,0 +1,25 @@
+.row{ :style => 'margin-top:15px' }
+	.span12.offset1
+		%table.table.table-striped.table-bordered
+			%thead
+				%tr
+					%th Type I
+					%th Type II
+					%th Client
+					%th Nom
+					%th Référence
+					%th Position
+					%th Localisation
+					%th Origine
+			%tbody#clone_table
+				%tr
+					%td= @clone.typeI
+					%td= @clone.typeII			
+					%td= @clone.client_in_table
+					%td= @clone.nom
+					%td= @clone.reference
+					%td= @clone.positions_in_table	
+					%td= @clone.localisation				
+					%td= @clone.origine
+					
+= render 'tiroirs/show' 
