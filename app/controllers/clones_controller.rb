@@ -1,6 +1,8 @@
 # encoding: UTF-8
 class ClonesController < ApplicationController
 
+	before_filter :authenticate_user!
+
 	def new
 		@clone = Clone.new
 	end
@@ -22,6 +24,15 @@ class ClonesController < ApplicationController
 		@clone = Clone.find(params[:id])
 		@tiroir = @clone.tiroir
 		@boites = @tiroir.boites.order(:numero)
+	end
+
+	def edit
+		@clone = Clone.find(params[:id])
+	end	
+
+	def destroy
+		Clone.find(params[:id]).destroy
+		redirect_to tiroirs_path, flash: { success: "Le clone a bien été supprimé !" }
 	end
 
 	private

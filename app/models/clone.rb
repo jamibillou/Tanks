@@ -27,7 +27,7 @@ class Clone < ActiveRecord::Base
 			position_first = positionings.first.position
 			position_last = positionings.last.position
 			"#{position_first.boite.tiroir.numero}/#{position_first.boite.numero}/#{position_first.numero} à #{position_last.numero}"
-		end	
+		end
 	end
 
 	def client_in_table

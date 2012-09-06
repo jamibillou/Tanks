@@ -11,6 +11,7 @@
 					%th Position
 					%th Localisation
 					%th Origine
+					%td 
 			%tbody#clone_table
 				%tr
 					%td= @clone.typeI
@@ -21,5 +22,8 @@
 					%td= @clone.positions_in_table	
 					%td= @clone.localisation				
 					%td= @clone.origine
-					
-= render 'tiroirs/show' 
+					%td
+						= link_to "<div class='icon-pencil'></div>".html_safe, edit_clone_path(@clone)
+						= link_to "<div class='icon-remove'></div>".html_safe, @clone, method: :delete, confirm: "Supprimer ce clone ?"
+
+= render 'tiroirs/show'
