@@ -18,7 +18,7 @@
 					%td
 						%strong Client (si lignée cliente)
 					%td
-						%input{ type: 'text', name: 'client' }
+						= f.fields_for(:client) {|client_builder| render 'fields_client', f: client_builder}
 				%tr
 					%td
 						%strong Nom
@@ -69,4 +69,4 @@
 						= f.text_field :origine
 			=f.submit 'Valider', class: "btn-primary btn-gigantic"
 		%span.pull-right
-			= link_to "Retour à l'accueil", url_for :back
+			= link_to "Retour à l'accueil", url_for(:back)

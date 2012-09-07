@@ -23,7 +23,7 @@
 					%td= @clone.localisation				
 					%td= @clone.origine
 					%td
-						= link_to "<div class='icon-pencil'></div>".html_safe, edit_clone_path(@clone)
-						= link_to "<div class='icon-remove'></div>".html_safe, @clone, method: :delete, confirm: "Supprimer ce clone ?"
+						= link_to "<div class='icon-pencil'></div>".html_safe, edit_clone_path(@clone), title: 'Modifier'
+						= link_to "<div class='icon-remove'></div>".html_safe, @clone, method: :delete, title: 'Supprimer', confirm: "Supprimer ce clone ?"
 
 = render 'tiroirs/show'

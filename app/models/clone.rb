@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class Clone < ActiveRecord::Base
 
-	attr_accessible :typeI, :typeII, :nom, :reference, :origine, :localisation, :client
+	attr_accessible :typeI, :typeII, :nom, :reference, :origine, :localisation, :client, :client_attributes
 
 	belongs_to :client
 
@@ -14,6 +14,8 @@ class Clone < ActiveRecord::Base
 	validates :localisation, 		inclusion: { in: %w(Lyon Grenoble), presence: true, message: "%{value} n'est pas une valeur correcte (Lyon ou Grenoble)" } 
 	validates :reference,		 		length: { maximum: 100 }
 	validates :origine,			 		length: { maximum: 100 }
+
+	accepts_nested_attributes_for :client
 
 	def tiroir
 		positionings.first.position.boite.tiroir

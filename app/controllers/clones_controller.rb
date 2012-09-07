@@ -5,17 +5,15 @@ class ClonesController < ApplicationController
 
 	def new
 		@clone = Clone.new
+		@clone.client = Client.new
 	end
 
 	def create
 		@clone = Clone.new params[:clone]
-		unless(params[:client].blank?)
-			@clone.client = Client.find_or_create_by_nom(params[:client])
-		end
 		unless @clone.save
 			redirect_to new_clone_path, flash: { error: error_messages(@clone) }
 		else
-			new_positioning
+			create_positioning
 			redirect_to root_path, flash: { success: "Le clone a bien été crée !"}
 		end	
 	end
@@ -30,14 +28,24 @@ class ClonesController < ApplicationController
 		@clone = Clone.find(params[:id])
 	end	
 
+	def update
+		@clone = Clone.find(params[:id])
+		unless @clone.update_attributes params[:clone]
+			render :edit, id: @clone, flash: { error: error_messages(@clone) }
+		else
+			@clone.positionings.destroy_all
+			create_positioning
+			redirect_to tiroirs_path, flash: { success: "Le clone a bien été mis à jour !"}
+		end
+	end
+
 	def destroy
 		Clone.find(params[:id]).destroy
 		redirect_to tiroirs_path, flash: { success: "Le clone a bien été supprimé !" }
 	end
 
 	private
-
-		def new_positioning
+		def create_positioning
 			tiroir = Tiroir.where(site: params[:clone][:localisation], numero: params[:tiroir]).first
 			boite = Boite.where(tiroir_id: tiroir, numero: params[:boite]).first
 			(params[:position_first]..params[:position_last]).each do |numero|
