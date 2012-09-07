@@ -41,27 +41,19 @@
 					%td
 						%dd Rack
 					%td
-						%select{ name: 'tiroir', class: 'input-small' }
-							- (1..6).each do |tiroir_num|
-								%option= "#{tiroir_num}"
+						%select{ name: 'tiroir', class: 'input-small' }= options_for_select((1..6), @clone.tiroir.numero)
 				%tr
 					%td
 						%dd Boite
 					%td
-						%select{ name: 'boite', class: 'input-small' }
-							- (1..5).each do |boite_num|
-								%option= "#{boite_num}"			
+						%select{ name: 'boite', class: 'input-small' }= options_for_select((1..5), @clone.boite.numero)		
 				%tr
 					%td
 						%dd Numéro
 					%td
-						%select{ name: 'position_first', class: 'input-small' }
-							- (1..25).each do |numero|
-								%option= "#{numero}"
+						%select{ name: 'first_position', class: 'input-small' }= options_for_select((1..25), @clone.first_position.numero)	
 						à
-						%select{ name: 'position_last', class: 'input-small' }
-							- (1..25).each do |numero|
-								%option= "#{numero}"
+						%select{ name: 'last_position', class: 'input-small' }= options_for_select((1..25), @clone.last_position.numero)
 				%tr
 					%td
 						%strong Origine

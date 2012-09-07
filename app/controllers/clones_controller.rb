@@ -26,6 +26,7 @@ class ClonesController < ApplicationController
 
 	def edit
 		@clone = Clone.find(params[:id])
+
 	end	
 
 	def update
@@ -48,7 +49,7 @@ class ClonesController < ApplicationController
 		def create_positioning
 			tiroir = Tiroir.where(site: params[:clone][:localisation], numero: params[:tiroir]).first
 			boite = Boite.where(tiroir_id: tiroir, numero: params[:boite]).first
-			(params[:position_first]..params[:position_last]).each do |numero|
+			(params[:first_position]..params[:last_position]).each do |numero|
 				position = Position.where(boite_id: boite, numero: numero).first
 				Positioning.create!(user: current_user, clone: @clone, position_ref: position)
 			end

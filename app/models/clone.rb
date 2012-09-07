@@ -17,19 +17,24 @@ class Clone < ActiveRecord::Base
 
 	accepts_nested_attributes_for :client
 
+	def first_position
+		positionings.first.position
+	end
+
+	def last_position
+		positionings.last.position
+	end
+
 	def tiroir
-		positionings.first.position.boite.tiroir
+		boite.tiroir
+	end
+
+	def boite
+		first_position.boite
 	end
 
 	def positions_in_table
-		if positionings.count == 1
-			position= positionings.first.position
-			"#{position.boite.tiroir.numero}/#{position.boite.numero}/#{position.numero}"  
-		else
-			position_first = positionings.first.position
-			position_last = positionings.last.position
-			"#{position_first.boite.tiroir.numero}/#{position_first.boite.numero}/#{position_first.numero} à #{position_last.numero}"
-		end
+		positionings.count == 1 ? "#{tiroir.numero}/#{boite.numero}/#{first_position.numero}" : "#{tiroir.numero}/#{boite.numero}/#{first_position.numero} à #{last_position.numero}"
 	end
 
 	def client_in_table
