@@ -1,0 +1,8 @@
+fr:
+  date:
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    abbr_month_names: [~, Jan, Fev, Mar, Avr, Mai, Juin, Jui, Aou, Sep, Oct, Nov, Déc]
+    order:
+      - :year
+      - :month
+      - :day

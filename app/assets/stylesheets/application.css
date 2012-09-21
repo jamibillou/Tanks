@@ -55,4 +55,6 @@ a.selected{
   background-color: #d9e7f8;
 }
 
-
+.date_select{
+  width: 75px;
+}

@@ -9,6 +9,7 @@ gem 'heroku'
 gem 'sass-rails',   '~> 3.2.3'
 gem 'font-awesome-sass-rails'
 gem 'pg'
+gem 'validates_timeliness', '3.0.2'
 
 # Gems used only for assets and not required
 # in production environments by default.

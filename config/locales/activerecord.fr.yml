@@ -5,6 +5,8 @@ fr:
     attributes:
       clone:
         nom: 'nom'
+        date_banking: 'date de banking'
     errors:
       messages:
         blank: 'obligatoire'
+        invalid_datetime: 'invalide'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120814095506) do
+ActiveRecord::Schema.define(:version => 20120920155856) do
 
   create_table "boites", :force => true do |t|
     t.integer  "numero"
@@ -34,8 +34,11 @@ ActiveRecord::Schema.define(:version => 20120814095506) do
     t.string   "reference"
     t.string   "origine"
     t.string   "localisation"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.datetime "date_banking"
+    t.string   "milieu_congelation"
+    t.string   "tests"
   end
 
   create_table "positionings", :force => true do |t|

@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class Clone < ActiveRecord::Base
 
-	attr_accessible :typeI, :typeII, :nom, :reference, :origine, :localisation, :client, :client_attributes
+	attr_accessible :typeI, :typeII, :nom, :reference, :origine, :localisation, :client, :client_attributes, :date_banking, :milieu_congelation, :tests
 
 	belongs_to :client
 
@@ -14,8 +14,9 @@ class Clone < ActiveRecord::Base
 	validates :localisation, 		inclusion: { in: %w(Lyon Grenoble), presence: true, message: "%{value} n'est pas une valeur correcte (Lyon ou Grenoble)" } 
 	validates :reference,		 		length: { maximum: 100 }
 	validates :origine,			 		length: { maximum: 100 }
+	validates_datetime :date_banking,																presence: true
 
-	accepts_nested_attributes_for :client
+	accepts_nested_attributes_for :client, :reject_if => lambda { |attr| attr['nom'].empty? }
 
 	def first_position
 		positionings.first.position
@@ -45,15 +46,18 @@ end
 #
 # Table name: clones
 #
-#  id           :integer         not null, primary key
-#  typeI        :string(255)
-#  typeII       :string(255)
-#  client_id    :integer
-#  nom          :string(255)
-#  reference    :string(255)
-#  origine      :string(255)
-#  localisation :string(255)
-#  created_at   :datetime        not null
-#  updated_at   :datetime        not null
+#  id                 :integer         not null, primary key
+#  typeI              :string(255)
+#  typeII             :string(255)
+#  client_id          :integer
+#  nom                :string(255)
+#  reference          :string(255)
+#  origine            :string(255)
+#  localisation       :string(255)
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
+#  date_banking       :datetime
+#  milieu_congelation :string(255)
+#  tests              :string(255)
 #
 

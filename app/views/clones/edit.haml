@@ -13,7 +13,7 @@
 					%td	
 						%strong Type 2
 					%td
-						= f.select :typeII, [ ["Lignée de base", "base"], ["Lignée adhérente", "adhérente"] ], {}, class: 'span2'
+						= f.select :typeII, [ ["Lignée en suspension", "suspension"], ["Lignée adhérente", "adhérente"] ], {}, class: 'span3'
 				%tr
 					%td
 						%strong Client (si lignée cliente)
@@ -24,6 +24,11 @@
 						%strong Nom
 					%td
 						= f.text_field :nom
+				%tr
+					%td
+						%strong Date de banking
+					%td
+						= f.date_field :date_banking
 				%tr
 					%td	
 						%strong Référence
