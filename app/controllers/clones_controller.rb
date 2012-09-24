@@ -26,13 +26,13 @@ class ClonesController < ApplicationController
 
 	def edit
 		@clone = Clone.find(params[:id])
-
 	end	
 
 	def update
 		@clone = Clone.find(params[:id])
 		unless @clone.update_attributes params[:clone]
-			render :edit, id: @clone, flash: { error: error_messages(@clone) }
+			flash[:error] = error_messages @clone
+			render :edit, id: @clone
 		else
 			@clone.positionings.destroy_all
 			create_positioning

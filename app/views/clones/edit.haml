@@ -28,7 +28,7 @@
 					%td
 						%strong Date de banking
 					%td
-						= f.date_field :date_banking
+						= f.date_select :date_banking, {prompt: {day: 'Jour', month: 'Mois', year: 'Année'}, use_month_numbers: true, order: [:day,:month,:year]}, {class: 'date_select'}
 				%tr
 					%td	
 						%strong Référence
@@ -64,6 +64,16 @@
 						%strong Origine
 					%td
 						= f.text_field :origine
+				%tr
+					%td
+						%strong Milieu de congélation
+					%td
+						= f.text_field :milieu_congelation
+				%tr
+					%td
+						%strong Tests
+					%td
+						= f.text_field :tests
 			=f.submit 'Valider', class: "btn-primary btn-gigantic"
 		%span.pull-right
 			= link_to "Retour à l'accueil", url_for(:back)
