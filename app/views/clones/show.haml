@@ -1,29 +1,20 @@
-.row{ :style => 'margin-top:15px' }
-	.span12.offset1
-		%table.table.table-striped.table-bordered
-			%thead
-				%tr
-					%th Type I
-					%th Type II
-					%th Client
-					%th Nom
-					%th Référence
-					%th Position
-					%th Localisation
-					%th Origine
-					%td 
-			%tbody#clone_table
-				%tr
-					%td= @clone.typeI
-					%td= @clone.typeII			
-					%td= @clone.client_in_table
-					%td= @clone.nom
-					%td= @clone.reference
-					%td= @clone.positions_in_table	
-					%td= @clone.localisation				
-					%td= @clone.origine
-					%td
-						= link_to "<div class='icon-pencil'></div>".html_safe, edit_clone_path(@clone), title: 'Modifier'
-						= link_to "<div class='icon-remove'></div>".html_safe, @clone, method: :delete, title: 'Supprimer', confirm: "Supprimer ce clone ?"
+.row
+	.span10.offset1.well
+		%h4= "Clone #{@clone.nom}"
+		%br/
+		%table
+			%tr
+				%td
+					= "Type : #{@clone.typeI}"
+					= "<br/>Référence : #{@clone.reference}".html_safe unless @clone.reference.blank?
+					= "<br/>Position : #{@clone.positions_in_table} (#{@clone.localisation})".html_safe
+				%td{style: 'padding-left:150px'}
+					= "Client : #{@clone.client_in_table}<br/>".html_safe unless @clone.client.blank?
+					= "Type : #{@clone.typeII}".html_safe
+					= "<br/>Milieu de congélation : #{@clone.milieu_congelation}".html_safe unless @clone.milieu_congelation.blank?
+					= "<br/>Tests : #{@clone.tests}".html_safe unless @clone.tests.blank?
+		%br/
+		= link_to "<div class='icon-pencil'> Modifier</div>".html_safe, edit_clone_path(@clone), 	title: "Modifier"
+		= link_to "<div class='icon-remove'> Supprimer</div>".html_safe, @clone, method: :delete, title: 'Supprimer', confirm: "Supprimer ce clone ?"
 
 = render 'tiroirs/show'

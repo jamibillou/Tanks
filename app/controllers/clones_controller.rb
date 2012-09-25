@@ -36,7 +36,7 @@ class ClonesController < ApplicationController
 		else
 			@clone.positionings.destroy_all
 			create_positioning
-			redirect_to tiroirs_path, flash: { success: "Le clone a bien été mis à jour !"}
+			redirect_to clone_path(@clone), flash: { success: "Le clone a bien été mis à jour !"}
 		end
 	end
 
