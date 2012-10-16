@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
 gem 'jquery-rails'
-#gem 'twitter-bootstrap-rails', :git => "http://github.com/seyhunak/twitter-bootstrap-rails", :branch => "static"
 gem 'haml'
 gem 'devise'
 gem 'heroku'
