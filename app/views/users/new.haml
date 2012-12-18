@@ -1,0 +1,32 @@
+.row
+	.span5.offset1
+		=render 'list_users', users: @users
+	.span5
+		=form_for @user do |f|
+			.well
+				%table
+					%tr
+						%td
+							%strong Email* : 
+						%td
+							=f.text_field :email
+					%tr
+						%td
+							%strong Admin* :
+						%td
+							Oui
+							=f.radio_button :admin, true
+							Non
+							=f.radio_button :admin, false
+					%tr
+						%td
+							%strong Mot de passe* :
+						%td
+							=f.password_field :password
+					%tr
+						%td
+							%strong Confirmation mot de passe* :
+						%td		
+							=f.password_field :password_confirmation
+				%br/
+				=f.submit 'Valider', class: 'btn-primary'

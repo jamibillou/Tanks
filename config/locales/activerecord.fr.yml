@@ -6,7 +6,13 @@ fr:
       clone:
         nom: 'nom'
         date_banking: 'date de banking'
+      user:
+        password: 'mot de passe'
     errors:
       messages:
         blank: 'obligatoire'
         invalid_datetime: 'invalide'
+        taken: 'déjà pris'
+        invalid: 'invalide'
+        confirmation: 'ne correspond pas'
+        too_short: 'trop court'

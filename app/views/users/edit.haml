@@ -1,0 +1,22 @@
+.row
+	.span5.offset1
+		=render 'list_users', users: @users
+	.span5
+		=form_for @user do |f|
+			.well
+				%table
+					%tr
+						%td
+							%strong Email* : 
+						%td
+							=f.text_field :email
+					%tr
+						%td
+							%strong Admin* :
+						%td
+							Oui
+							=f.radio_button :admin, true
+							Non
+							=f.radio_button :admin, false
+				%br/
+				=f.submit 'Valider', class: 'btn-primary'

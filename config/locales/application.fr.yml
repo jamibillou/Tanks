@@ -2,6 +2,8 @@ fr:
   flash:
     error:
       base: 'Erreur :'
+      only:
+        admin: 'Page réservée aux administrateurs'
   support:
     array:
       two_words_connector: ', '

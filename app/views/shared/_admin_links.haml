@@ -3,6 +3,8 @@
 		%h6.pull-right Menu administrateur
 		%br/
 		%br/
+		- if current_user.admin
+			%strong.pull-right= link_to 'Gestion utilisateurs', users_path
 		%strong.pull-right= link_to 'Ajouter un clone', new_clone_path 
 		%br/
 		%br/

@@ -1,0 +1,15 @@
+%table.table.table-bordered
+	%thead
+		%th Email
+		%th	Admin
+		%th
+	%tr
+		%td{colspan:3, style: 'text-align:center'}
+			%strong= link_to 'Ajouter un utilisateur', new_user_path
+	- users.each do |user|
+		%tr
+			%td= user.email
+			%td= "Oui" if user.admin
+			%td
+				= link_to "<div class='icon-pencil'></div>".html_safe, edit_user_path(user), 	title: "Modifier"
+				= link_to "<div class='icon-remove'></div>".html_safe, user, method: :delete, title: 'Supprimer', confirm: "Supprimer cet utilisateur ?"
